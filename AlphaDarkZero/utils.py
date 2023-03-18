@@ -206,10 +206,11 @@ def train_probability_nn(probability_nn, prob_optim, board, device='cuda'):
     output = probability_nn(input_tensor)
 
     output = output * num_piece_tensor
-    print(output.shape)
+    # print(output.shape)
+    # print(output)
 
     # Calculate the loss using the predictions and the true piece planes
-    loss_fn = nn.BCELoss()
+    loss_fn = nn.MSELoss()
     loss = loss_fn(output, target_tensor)
 
     # Update the model weights
